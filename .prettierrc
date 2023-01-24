@@ -1,0 +1,22 @@
+{
+  "singleQuote": true,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "useTabs": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "bracketSpacing": true,
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/common/(.*)$",
+    "^../(.*)",
+    "^./(.*)"
+  ],
+  "importOrderParserPlugins": [
+    "typescript",
+    "classProperties",
+    "decorators-legacy"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
