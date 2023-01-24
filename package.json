@@ -19,7 +19,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/cli": "^5.0.8",
-    "chalk": "^5.2.0",
+    "chalk": "^4.1.2",
     "chokidar": "^3.5.3",
     "electron": "^22.0.3",
     "electron-builder": "^23.6.0",
