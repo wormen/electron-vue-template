@@ -1,6 +1,8 @@
 import { BrowserWindow, app, ipcMain, session } from 'electron';
 import { join } from 'path';
 
+import { isDev, isMac } from './constants';
+
 function createWindow() {
 	const mainWindow = new BrowserWindow({
 		width: 800,
@@ -12,7 +14,7 @@ function createWindow() {
 		}
 	});
 
-	if (process.env.NODE_ENV === 'development') {
+	if (isDev) {
 		const rendererPort = process.argv[2];
 		mainWindow.loadURL(`http://localhost:${rendererPort}`);
 	} else {
@@ -42,7 +44,7 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', function () {
-	if (process.platform !== 'darwin') app.quit();
+	if (!isMac) app.quit();
 });
 
 ipcMain.on('message', (event, message) => {
