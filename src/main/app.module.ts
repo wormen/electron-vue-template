@@ -2,6 +2,7 @@ import { ElectronModule } from '@doubleshot/nest-electron';
 import { Module } from '@nestjs/common';
 import { BrowserWindow, app } from 'electron';
 import { join } from 'path';
+import * as url from 'url';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -29,7 +30,9 @@ import { isDev } from './constants';
 
 				const URL = isDev
 					? `http://localhost:${process.argv[2]}`
-					: join(app.getAppPath(), 'renderer', 'index.html');
+					: url
+							.pathToFileURL(join(app.getAppPath(), 'renderer', 'index.html'))
+							.toString();
 
 				win.loadURL(URL);
 
